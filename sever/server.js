@@ -39,7 +39,7 @@ async function chat(userResp){
      have to genrate the code for html, css, javascript and the response would be in this format {"aiResponse" : "your response", "html" : "html code",
      "css" : "css code", "js" : "js code"} don't give any new lines or spaces before the response . the user prompt is ${userResp}`;
       console.log(prompt);
-      const geminiResponse = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyB1CYPN7LaEagqG807oOJJNKFqCRz_b_FE', {
+      const geminiResponse = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyBBqnpw-ogs5u9--7EiUpiMNztEykkA7XI', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
