@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resizable Panels with AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Chat Panel -->
+        <div class="chat-panel panel" id="chat-panel">
+            <h2>Chat with AI</h2>
+            <div id="chat-messages"></div>
+            <textarea id="chat-input" placeholder="Ask something..."></textarea>
+            <button id="send-button">Send</button>
+            <div class="resize-handle" id="chat-resize-handle"></div>
+        </div>
+
+        <!-- Output Panel -->
+        <div class="output-panel panel" id="output-panel">
+            <iframe id="live-preview"></iframe>
+            <div class="resize-handle" id="output-resize-handle"></div>
+        </div>
+
+        <!-- Code Editors Panel -->
+        <div class="code-editors panel" id="code-editors">
+            <!-- Tabs for HTML, CSS, JS -->
+            <div class="tabs">
+                <button class="tab-button" id="html-tab">index.html</button>
+                <button class="tab-button" id="css-tab">index.css</button>
+                <button class="tab-button" id="js-tab">index.js</button>
+            </div>
+
+            <!-- Code Editors (hidden by default) -->
+            <div id="html-editor" class="code-editor">
+                <textarea id="html-code" placeholder="index.html"></textarea>
+            </div>
+            <div id="css-editor" class="code-editor">
+                <textarea id="css-code" placeholder="index.css"></textarea>
+            </div>
+            <div id="js-editor" class="code-editor">
+                <textarea id="js-code" placeholder="index.js"></textarea>
+            </div>
+            
+            <div class="resize-handle" id="code-editors-resize-handle"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
