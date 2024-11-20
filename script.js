@@ -6,7 +6,7 @@ const chatMessages = document.getElementById('chat-messages');
 const chatInput = document.getElementById('chat-input');
 const sendButton = document.getElementById('send-button');
 
-// Live Preview Functionality
+
 function updatePreview() {
     const html = htmlEditor.value;
     const css = `<style>${cssEditor.value}</style>`;
@@ -20,7 +20,7 @@ jsEditor.addEventListener('input', updatePreview);
 
 
 
-// Resizable panels logic
+
 function makeResizable(panel, handle) {
     let startX, startWidth;
 
@@ -43,28 +43,28 @@ function makeResizable(panel, handle) {
     });
 }
 
-// Apply resizable behavior to each panel
+
 makeResizable(document.getElementById('chat-panel'), document.getElementById('chat-resize-handle'));
 makeResizable(document.getElementById('output-panel'), document.getElementById('output-resize-handle'));
 makeResizable(document.getElementById('code-editors'), document.getElementById('code-editors-resize-handle'));
 
-// Tab Switching Logic
+
 const tabs = document.querySelectorAll('.tab-button');
 const codeEditors = document.querySelectorAll('.code-editor');
 
 tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-        // Remove active class from all tabs
+       
         tabs.forEach(t => t.classList.remove('active'));
 
-        // Hide all code editors
+     
         codeEditors.forEach(editor => editor.style.display = 'none');
 
-        // Show the corresponding code editor
+       
         const targetEditor = document.getElementById(tab.id.replace('-tab', '-editor'));
         targetEditor.style.display = 'block';
 
-        // Add active class to the clicked tab
+       
         tab.classList.add('active');
     });
 });
@@ -74,20 +74,19 @@ document.getElementById('html-tab').classList.add('active');
 document.getElementById('html-editor').style.display = 'block';
 
 
-// Frontend JS to handle sending messages to the server
 
 
 async function sendMessage() {
     const userMessage = chatInput.value.trim();
     if (!userMessage) return;
 
-    // Append user message to chat
+    
     const userMsgDiv = document.createElement('div');
     userMsgDiv.textContent = `You: ${userMessage}`;
     chatMessages.appendChild(userMsgDiv);
 
-    // Call backend for response
-    const response = await fetch('http://localhost:5000/chat', {
+   
+    const response = await fetch('https://server-ai-frondend-generator.onrender.com/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userMessage }),
@@ -95,7 +94,7 @@ async function sendMessage() {
 
     const data = await response.json();
 
-    // Append AI response to chat
+
     const aiMsgDiv = document.createElement('div');
     aiMsgDiv.textContent = `AI: ${data.response}`;
     chatMessages.appendChild(aiMsgDiv);
